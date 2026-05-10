@@ -12,11 +12,11 @@ const App = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(${assets.bgImage})`
-      }}
-    >
+  className="min-h-screen bg-cover bg-center bg-no-repeat"
+  style={{
+    backgroundImage: `url(${assets.background})`
+  }}
+>
       <Toaster />
 
       <Routes>

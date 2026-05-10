@@ -11,7 +11,7 @@ const Sidebar = () => {
     selectedUser,
     setSelectedUser,
     unseenMessages,
-    setUnseenMesages // ✅ matches ChatContext spelling
+    setUnseenMesages 
   } = useContext(ChatContext);
 
   const { logout, onlineUsers } = useContext(AuthContext);
