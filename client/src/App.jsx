@@ -5,16 +5,19 @@ import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import { Toaster } from "react-hot-toast"
 import { AuthContext } from '../context/AuthContext'
-import assets from "../assets/assets";
+import assets from "./assets/assets";
 
 const App = () => {
   const { authUser } = useContext(AuthContext)
+
+  // Use imported Vite asset for background so it works in production builds
+  const backgroundUrl = assets?.background
 
   return (
     <div
   className="min-h-screen bg-cover bg-center bg-no-repeat"
   style={{
-    backgroundImage: `url(${assets.background})`
+    backgroundImage: `url(${backgroundUrl})`
   }}
 >
       <Toaster />
