@@ -10,12 +10,12 @@ import { Server } from "socket.io";
 const app = express();
 const server = http.createServer(app);
 
-// ✅ Initialize socket.io
+
 export const io = new Server(server, {
   cors: { origin: "*" },
 });
 
-// ✅ Map to track online users
+
 export const userSocketMap = {};
 
 io.on("connection", (socket) => {
@@ -33,18 +33,18 @@ io.on("connection", (socket) => {
   });
 });
 
-// ✅ Middlewares
+
 app.use(express.json({ limit: "4mb" }));
 app.use(cors());
 
 
 
-// ✅ API routes
+
 app.use("/api/status", (req, res) => res.send("Server is live"));
 app.use("/api/auth", userRouter);
 app.use("/api/messages", messageRouter);
 
-// ✅ Catch-all route for debugging 404s (must be last)
+
 app.use((req, res) => {
     console.log(`404 - Route not found: ${req.method} ${req.originalUrl}`);
     res.status(404).json({ 
@@ -59,7 +59,7 @@ app.use((req, res) => {
     });
 });
 
-// ✅ Connect to DB and start server
+
 await connectDB();
 
 const PORT = 5002;

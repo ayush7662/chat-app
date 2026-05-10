@@ -6,13 +6,13 @@ import { io } from "socket.io-client";
 const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5002";
 axios.defaults.baseURL = backendUrl;
 
-// Log backend URL for debugging (remove in production)
+
 if (!import.meta.env.VITE_BACKEND_URL) {
   console.warn("VITE_BACKEND_URL not set, using default: http://localhost:5002");
 }
 console.log("Backend URL:", backendUrl);
 
-// Add request interceptor to automatically include Bearer token
+
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
