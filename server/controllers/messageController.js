@@ -94,7 +94,7 @@ export const sendMessage = async (req, res) => {
                 });
             }
 
-            // Check if Cloudinary is properly configured
+            
             const isCloudinaryConfigured = process.env.CLOUD_NAME && process.env.CLOUD_API_KEY && process.env.CLOUD_API_SECRET;
             
             if (isCloudinaryConfigured) {
@@ -116,11 +116,11 @@ export const sendMessage = async (req, res) => {
                     });
                 }
             } else {
-                // Fallback: Store base64 image directly in database (for development)
+                
                 console.log("Cloudinary not configured. Storing image as base64 in database.");
                 console.warn("⚠️  For production, please configure Cloudinary in .env file");
                 
-                // Limit base64 size to 2MB when not using Cloudinary
+               
                 const maxBase64Size = 2 * 1024 * 1024; // 2MB
                 if (base64Size > maxBase64Size) {
                     return res.status(400).json({ 
@@ -129,7 +129,7 @@ export const sendMessage = async (req, res) => {
                     });
                 }
                 
-                imageUrl = image; // Store base64 directly
+                imageUrl = image; 
             }
         }
 
