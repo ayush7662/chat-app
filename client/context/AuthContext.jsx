@@ -3,12 +3,12 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5002";
+const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://chat-app-tw2m.onrender.com";
 axios.defaults.baseURL = backendUrl;
 
 
 if (!import.meta.env.VITE_BACKEND_URL) {
-  console.warn("VITE_BACKEND_URL not set, using default: http://localhost:5002");
+  console.warn("VITE_BACKEND_URL not set, using default: https://chat-app-tw2m.onrender.com");
 }
 console.log("Backend URL:", backendUrl);
 
